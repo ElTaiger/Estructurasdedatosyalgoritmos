@@ -1,0 +1,22 @@
+Vale, antes de nada, aquí dejo la explicación de los costes espaciales y temporales de todas las estructuras y operaciones que he hecho en esta Práctica 1. Lo pongo todo un poco resumido y claro para ver el rendimiento de cada cosa.
+Coste Espacial (para todo) El coste espacial de absolutamente todas las estructuras que he programado (Pila, Cola, Lista, Cola de Prioridad y Lista con Dummy) es O(n). Esto es básicamente porque la memoria que uso crece linealmente según la cantidad de elementos que voy metiendo. Si meto 50 cosas, el sistema gasta memoria para 50, sin más complicación.
+Pila con Array (PilaArray)
+apilar(): El coste es O(1) casi siempre (coste amortizado), porque lo meto al final de la caja y ya está. Solo me va a tardar O(n) el día que el array se me llene y tenga que hacer el truco de crear uno nuevo y copiar todo.
+desapilar() y tope(): Es O(1). Es instantáneo porque solo miro o quito lo que está en la última posición ocupada.
+esVacia() y talla(): O(1), directo.
+Cola con Array (ColaArray)
+encolar(): Igual que en la pila, O(1) amortizado.
+desencolar() y primero(): Aquí también es O(1). Al principio parecía que iba a ser O(n) por tener que mover a la gente, pero como usé el truco del array circular (con el módulo %), no tengo que estar moviendo a toda la fila cuando el primero se va, simplemente avanzo el índice del primero y va súper bien.
+Lista con Array (ListaArray)
+insertar() y eliminar(): Aquí la cosa cambia, el coste es O(n). Como es un array, si meto o borro a alguien por el medio de la lista, me toca mover a todos los demás un paso a la derecha o a la izquierda para hacer o tapar el hueco.
+buscar(): O(n) porque en el peor de los casos me toca leer toda la lista entera desde el principio hasta encontrar el dato.
+recuperar(): O(1). Al ser un array normal por debajo, si le pido la posición 4, va directo a esa posición de memoria y es rapidísimo.
+Cola con Prioridad (ColaPrioridadArray)
+encolar(): Aquí el coste sube a O(n). Porque claro, cuando llega alguien nuevo, tengo que recorrer la fila y mover a los demás para dejarle en su sitio exacto según lo VIP (la prioridad) que sea.
+desencolar() y primero(): O(1). Como me curré el encolar para dejar la cola siempre ordenada con el más VIP al final del todo, sacarlo o mirarlo es instantáneo.
+Lista con Dummy Node (ListaEnlazadaDummy)
+insertar(), eliminar(), recuperar() y buscar(): Todas estas operaciones son O(n). Al estar hecho con nodos enlazados (como si fueran los vagones de un tren), para llegar por ejemplo a la posición 5, tengo que pasar por narices por el vagón 1, el 2, el 3 y el 4. No puedo saltar directo, así que el coste es lineal.
+Problema de los Paréntesis
+Coste temporal: O(n) porque solo recorro la cadena de texto letra por letra una única vez de principio a fin.
+Coste espacial: O(n) también, porque en el peor de los casos (que me pasen algo súper desbalanceado como (((((() voy a tener que meter todos esos caracteres de apertura en la Pila.
+Y con esto ya quedaría terminada esta tarea, fabulosooo.
